@@ -9,20 +9,32 @@ const Navbar = () => (
     <div className="container">
       <div className="navbar-brand">
         <Link to="/" className="navbar-item">
-          <figure className="image">
+          <h2>CryptoPledge</h2>
+          {/* <figure className="image">
             <img src={logo} alt="Kaldi" style={{ width: '88px' }} />
-          </figure>
+          </figure> */}
         </Link>
+        {/* <div class="navbar-burger">
+          <span />
+          <span />
+          <span />
+        </div> */}
       </div>
       <div className="navbar-start">
         <Link className="navbar-item" to="/about">
           About
         </Link>
-        <Link className="navbar-item" to="/products">
-          Products
+        <Link className="navbar-item" to="/pledge">
+          Pledge
+        </Link>
+        <Link className="navbar-item" to="/research">
+          Research
+        </Link>
+        <Link className="navbar-item" to="/research">
+          Blog
         </Link>
       </div>
-      <div className="navbar-end">
+      {/* <div className="navbar-end">
         <a
           className="navbar-item"
           href="https://github.com/AustinGreen/gatsby-netlify-cms-boilerplate"
@@ -33,7 +45,7 @@ const Navbar = () => (
             <img src={github} alt="Github" />
           </span>
         </a>
-      </div>
+      </div> */}
     </div>
   </nav>
 )

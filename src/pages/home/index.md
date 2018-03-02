@@ -1,8 +1,7 @@
 ---
-templateKey: about-page
-title: About CryptoPledge
-subtitle: sas
-body: boo
-stats: ba
-partners: bi
+templateKey: home-page
+title: CryptoPledge
+subtitle: A commitment to positive impact
 ---
+
+Take the cryptopledge: make a commitment to offset your crypto carbon footprint

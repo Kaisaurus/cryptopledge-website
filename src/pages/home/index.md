@@ -1,7 +1,7 @@
 ---
 templateKey: home-page
-title: CryptoPledge
-subtitle: A commitment to positive impact
+title: A commitment to positive impact
+subtitle: "Take the cryptopledge: make a commitment to offset your crypto carbon footprint"
 ---
 
 Take the cryptopledge: make a commitment to offset your crypto carbon footprint

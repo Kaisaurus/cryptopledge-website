@@ -1,5 +1,4 @@
 import React from 'react'
-import Img from 'gatsby-image'
 import Content, { HTMLContent } from '../components/Content'
 
 export const HomePageTemplate = ({

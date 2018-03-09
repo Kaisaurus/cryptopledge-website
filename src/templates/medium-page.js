@@ -6,9 +6,13 @@ export class MediumPageTemplate extends Component {
     posts: []
   }
   componentDidMount(posts) {
-    getMediumFeed()
-      .then(data => this.setState({ posts: data.items }))
-      .catch(error => console.log(`error :${error}`))
+    getMediumFeed(this.appendResp)
+    // getMediumFeed()
+    //   .then(data => this.setState({ posts: data.items }))
+    //   .catch(error => console.log(`error :${error}`))
+  }
+  appendResp = fetchPromise => {
+    fetchPromise.then(posts => this.setState({ posts: posts.items }))
   }
   renderPost(post, index) {
     const { title, pubDate, link, content, description } = post
@@ -25,14 +29,15 @@ export class MediumPageTemplate extends Component {
   render() {
     const { title } = this.props
     const { posts } = this.state
-
     return (
       <section className="section section--gradient">
         <div className="container">
           <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
             {title}
           </h2>
-          {posts.map((post, index) => this.renderPost(post, index))}
+          {posts.length > 0
+            ? posts.map((post, index) => this.renderPost(post, index))
+            : 'Loading posts from Medium...'}
         </div>
       </section>
     )
@@ -55,11 +60,17 @@ export const mediumPageQuery = graphql`
     }
   }
 `
-
-async function getMediumFeed(username = '@kaigotoh') {
+// using async causes error on build
+// async function getMediumFeed(username = '@kaigotoh') {
+//   const mediumUrl = `https://medium.com/feed/${username}`
+//   const resp = await fetch(
+//     `https://api.rss2json.com/v1/api.json?rss_url=${mediumUrl}`
+//   )
+//   return await resp.json()
+// }
+function getMediumFeed(appendResp, username = '@kaigotoh') {
   const mediumUrl = `https://medium.com/feed/${username}`
-  const resp = await fetch(
-    `https://api.rss2json.com/v1/api.json?rss_url=${mediumUrl}`
+  fetch(`https://api.rss2json.com/v1/api.json?rss_url=${mediumUrl}`).then(
+    resp => appendResp(resp.json())
   )
-  return await resp.json()
 }

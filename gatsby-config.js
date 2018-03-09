@@ -3,7 +3,7 @@ module.exports = {
     title: 'Gatsby + Netlify CMS Starter'
   },
   plugins: [
-    `gatsby-plugin-styled-components`,
+    // 'gatsby-plugin-styled-components',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
@@ -21,7 +21,7 @@ module.exports = {
       }
     },
     'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
+    // 'gatsby-transformer-sharp',
     {
       resolve: 'gatsby-transformer-remark',
       options: {

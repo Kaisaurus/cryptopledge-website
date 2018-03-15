@@ -15,7 +15,7 @@ export default class Navbar extends React.Component {
         <div className="container">
           <div className="navbar-brand">
             <Link to="/" className="navbar-item">
-              <h2>CryptoPledge</h2>
+              <h2>Crypto Pledge</h2>
             </Link>
 
             <a

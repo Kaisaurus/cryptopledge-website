@@ -1,5 +1,6 @@
 import React from 'react'
 import Content, { HTMLContent } from '../components/Content'
+import OrganizationsTable from '../components/OrganizationsTable'
 
 export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
   const PageContent = contentComponent || Content
@@ -14,6 +15,7 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
                 {title}
               </h2>
               <PageContent className="content" content={content} />
+              {/* <OrganizationsTable organizations={organizations} /> */}
             </div>
           </div>
         </div>
@@ -22,8 +24,9 @@ export const ResearchPageTemplate = ({ title, content, contentComponent }) => {
   )
 }
 
-export default ({ data }) => {
-  const { markdownRemark: post } = data
+export default props => {
+  // TODO: figure out how to access the organizations list from the pledge page
+  const { markdownRemark: post } = props.data
 
   return (
     <ResearchPageTemplate

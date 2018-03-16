@@ -1,7 +1,13 @@
 import React from 'react'
 import Content, { HTMLContent } from '../components/Content'
+import OrganizationsTable from '../components/OrganizationsTable'
 
-export const PledgePageTemplate = ({ title, content, contentComponent }) => {
+export const PledgePageTemplate = ({
+  title,
+  content,
+  organizations,
+  contentComponent
+}) => {
   const PageContent = contentComponent || Content
 
   return (
@@ -14,6 +20,7 @@ export const PledgePageTemplate = ({ title, content, contentComponent }) => {
                 {title}
               </h2>
               <PageContent className="content" content={content} />
+              <OrganizationsTable organizations={organizations} />
             </div>
           </div>
         </div>
@@ -29,6 +36,7 @@ export default ({ data }) => {
     <PledgePageTemplate
       contentComponent={HTMLContent}
       title={post.frontmatter.title}
+      organizations={post.frontmatter.organizations}
       content={post.html}
     />
   )
@@ -40,6 +48,12 @@ export const pledgePageQuery = graphql`
       html
       frontmatter {
         title
+        organizations {
+          name
+          url
+          donation
+          effectiveness
+        }
       }
     }
   }

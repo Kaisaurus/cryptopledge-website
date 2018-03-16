@@ -7,7 +7,7 @@ import PledgePagePreview from './preview-templates/PledgePagePreview'
 // import BlogPostPreview from './preview-templates/BlogPostPreview'
 
 CMS.registerPreviewStyle('/styles.css')
-CMS.registerPreviewTemplate('about', HomePagePreview)
+CMS.registerPreviewTemplate('home', HomePagePreview)
 CMS.registerPreviewTemplate('about', AboutPagePreview)
 CMS.registerPreviewTemplate('research', ResearchPagePreview)
 CMS.registerPreviewTemplate('pledge', PledgePagePreview)

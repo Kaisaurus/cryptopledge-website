@@ -8,18 +8,22 @@ $blue: #34495e;
 $pink: #4d3232;
 $purple: #270d1f;
 
+$primary: $green;
+$link: $olive-green;
+// $info: $green;
+// $turquoise: $green;
+// $background: $green;
+
 @import '~bulma';
 @import '~bulmaswatch/flatly/_overrides.scss';
-
-$background: $green;
 
 .is-bg-white-ter {
   background-color: $white-ter;
 }
 
-.is-bg-grey {
-  background-color: $grey;
-}
+// .is-bg-grey {
+//   background-color: $grey;
+// }
 
 .bg-dark-green {
   background-color: $dark-green;
@@ -30,11 +34,9 @@ $background: $green;
 .navbar {
   border-radius: 0;
 }
-// .navbar-item {
-//   color: $white-ter;
-// }
-
-// footer code
+.navbar-burger {
+  color: $dark-green !important;
+}
 
 $footer-size: 100px;
 

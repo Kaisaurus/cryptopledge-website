@@ -1,11 +1,11 @@
 import React from 'react'
 
 const Footer = () => (
-  <footer className="footer is-bg-grey">
+  <footer className="footer">
     <div className="container">
       <div className="content has-text-centered">
         <p>
-          <strong className="has-text-white-ter">CryptoPledge</strong>
+          <strong>CryptoPledge</strong> 2018{' '}
           <a href="http://opensource.org/licenses/mit-license.php">MIT</a>.
         </p>
         <p>

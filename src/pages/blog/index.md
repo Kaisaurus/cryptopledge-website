@@ -1,7 +1,6 @@
 ---
 templateKey: medium-page
-title: CryptoPledge
+title: CryptoPledge Blog
 username: kaigotoh
 ---
 
-You can also find us on medium.

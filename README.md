@@ -16,7 +16,7 @@ $ yarn run serve
 
 ## How to add a page (Example)
 
-open 'static/admin/config.yml' and add a [colletion](https://www.netlifycms.org/docs/collection-types/#collection-types).
+open 'static/admin/config.yml' and add a [collection](https://www.netlifycms.org/docs/collection-types/#collection-types).
 
 ```
 - name: "pages"
@@ -36,12 +36,9 @@ Create the page specified in as `file` (`src/pages/research/index.md`)
 ```
 ---
 templateKey: research-page
-title: About CryptoPledge
+title: The Reasearch
 ---
-
-## This is the header of the content in markdown format
-
-This is some body text
+This is some content
 ```
 
 Create the template specified as `templateKey` (`src/pages/templates/research-page.js`)
@@ -78,6 +75,24 @@ export const researchPageQuery = graphql`
   }
 `
 ```
+
+Create a page preview using the template (`src/cms/preview-templates/ResearchPagePreview.js`) and add it to `src/cms/cms.js`
+
+```
+import React from 'react'
+import { ResearchPageTemplate } from '../../templates/research-page'
+
+const ResearchPagePreview = ({ entry, widgetFor }) => (
+  <ResearchPageTemplate
+    title={entry.getIn(['data', 'title'])}
+    content={widgetFor('body')}
+  />
+)
+
+export default ResearchPagePreview
+```
+
+You're done!
 
 ## Credits
 

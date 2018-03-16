@@ -45,7 +45,7 @@ collections:
           - {label: "Body", name: "body", widget: "markdown"}
           - label: "Organizations"
             name: "organizations"
-            widget: "object"
+            widget: "list"
             fields:
             -  {label: "Name", name: "name", widget: "string"}
             -  {label: "Effectiveness", name: "effectiveness", widget: "string"}

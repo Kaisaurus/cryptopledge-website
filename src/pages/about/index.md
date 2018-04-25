@@ -1,7 +1,8 @@
 ---
-templateKey: about-page
+templateKey: plain-page
 title: About CryptoPledge
 ---
+
 ## What is cryptocurrency?
 
 A cryptocurrency is a digital asset designed to work as a medium of exchange that uses cryptography to secure its transactions, to control the creation of additional units, and to verify the transfer of assets.\[1] Different cryptocurrencies use different architectures -- whether a blockchain, DAG (Directed Acyclic Graph) or something else -- and each one has its own unique impact. Still in their early stages, they promise a world powered by verifiable proofs.
@@ -14,7 +15,7 @@ Therefore, to try to earn as much as possible, miners produce as many calculatio
 
 Depending on which energy sources are used, the emissions produced by the mining network could be dangerously high. If miners in a network are running on, e.g., coal fuel rather than solar power or hydroelectricity, a single transaction could produce as much emission as taking a one hour Boeing 747-400 flight, driving a Hummer for 200 km.
 
-Traditional currency exchange protocols require much less computational power and so consume much less power and produce less CO2 per transaction. Digiconomist estimates that a single Bitcoin transaction consumes more energy than 400,000 Visa transactions. 
+Traditional currency exchange protocols require much less computational power and so consume much less power and produce less CO2 per transaction. Digiconomist estimates that a single Bitcoin transaction consumes more energy than 400,000 Visa transactions.
 
 ## How much electricity has been consumed by cryptocurrencies?
 

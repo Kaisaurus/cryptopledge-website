@@ -1,6 +1,8 @@
 import React from 'react'
 import Content, { HTMLContent } from '../components/Content'
 import OrganizationsTable from '../components/OrganizationsTable'
+import CarbonCalculator from '../components/CarbonCalculator'
+import { PlainPageTemplate } from './plain-page'
 
 export const PledgePageTemplate = ({
   title,
@@ -9,24 +11,14 @@ export const PledgePageTemplate = ({
   contentComponent
 }) => {
   const PageContent = contentComponent || Content
-
-  return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
-              <OrganizationsTable organizations={organizations} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+  const pledgeContent = (
+    <React.Fragment>
+      <CarbonCalculator />
+      <PageContent className="content" content={content} />
+      <OrganizationsTable organizations={organizations} />
+    </React.Fragment>
   )
+  return <PlainPageTemplate title={title} reactContent={pledgeContent} />
 }
 
 export default ({ data }) => {

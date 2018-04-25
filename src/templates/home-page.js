@@ -2,8 +2,10 @@ import React from 'react'
 import Content, { HTMLContent } from '../components/Content'
 import styled from 'styled-components'
 import home_bg from '../img/cryptopledge-home-1344.jpg'
+import { Container, Title, Subtitle, Hero, HeroBody } from 'bloomer'
+import MainNavbar from '../components/MainNavbar'
 
-const HomeHero = styled.section`
+const HomeHero = styled(Hero)`
   background-image: url(${home_bg});
   background-size: cover;
   background-position: center;
@@ -28,24 +30,31 @@ export const HomePageTemplate = ({
 
   return (
     <React.Fragment>
-      <HomeHero className="hero is-large is-bg-white-ter">
-        <div className="hero-body">
-          <div className="container has-text-centered">
-            <h1 className="title has-text-white-bis">{title}</h1>
-            <h2 className="subtitle has-text-white-ter">{subtitle}</h2>
-          </div>
-        </div>
+      <HomeHero isFullHeight>
+        <MainNavbar />
+        <HeroBody>
+          <Container hasTextAlign="centered">
+            <Title isSize={2} className="has-text-white-bis">
+              {title}
+            </Title>
+            <Subtitle isSize={5} className="has-text-white-ter">
+              {subtitle}
+            </Subtitle>
+          </Container>
+        </HeroBody>
+        <Hero className="is-primary" isSize="small">
+          <HeroBody>
+            <Container>
+              <PledgeHeader className="title has-text-centered">
+                <PledgeBtn className="button is-link is-large">
+                  Pledge
+                </PledgeBtn>
+                Join others and offset your crypto carbon footprint today{' '}
+              </PledgeHeader>
+            </Container>
+          </HeroBody>
+        </Hero>
       </HomeHero>
-      <section className="hero is-primary">
-        <div className="hero-body">
-          <div className="container ">
-            <PledgeHeader className="title has-text-centered">
-              <PledgeBtn className="button is-link is-large">Pledge</PledgeBtn>
-              Join others and offset your crypto carbon footprint today{' '}
-            </PledgeHeader>
-          </div>
-        </div>
-      </section>
       <div className="container section ">
         <div className="columns">
           <div className="column is-4">
@@ -119,7 +128,6 @@ export const HomePageTemplate = ({
 }
 
 export default ({ data }) => {
-  console.log('dataa: ', data)
   const { markdownRemark: post } = data
 
   return (

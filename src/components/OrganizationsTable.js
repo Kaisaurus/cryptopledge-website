@@ -12,9 +12,9 @@ const OrganizationsTable = ({ organizations }) => {
       </thead>
       <tbody>
         {organizations ? (
-          organizations.map(organization => {
+          organizations.map((organization, i) => {
             return (
-              <tr>
+              <tr key={i}>
                 <td>
                   <a href={organization.url}>{organization.name}</a>
                 </td>

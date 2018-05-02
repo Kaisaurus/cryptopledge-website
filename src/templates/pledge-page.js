@@ -1,8 +1,9 @@
 import React from 'react'
 import Content, { HTMLContent } from '../components/Content'
 import OrganizationsTable from '../components/OrganizationsTable'
-import CarbonCalculator from '../components/CarbonCalculator'
+import PledgeWalkthrough from '../components/pledge/PledgeWalkthrough'
 import { PlainPageTemplate } from './plain-page'
+import { db } from '../firebase'
 
 export const PledgePageTemplate = ({
   title,
@@ -11,14 +12,22 @@ export const PledgePageTemplate = ({
   contentComponent
 }) => {
   const PageContent = contentComponent || Content
-  const pledgeContent = (
-    <React.Fragment>
-      <CarbonCalculator />
+  const btc = db.getBitcoinKgCO2e()
+  // .then(snapshot => console.log(snapshot.val()))
+  const bth = db.getBitcoinCashKgCO2e()
+  // .then(snapshot => console.log(snapshot.val()))
+  const eth = db.getEthereumCashKgCO2e()
+  // .then(snapshot => console.log(snapshot.val()))
+  // const donor = db
+  //   .getDonorLeaderBoard()
+  //   .then(snapshot => console.log(snapshot.val()))
+  return (
+    <PlainPageTemplate title={title}>
+      <PledgeWalkthrough />
       <PageContent className="content" content={content} />
       <OrganizationsTable organizations={organizations} />
-    </React.Fragment>
+    </PlainPageTemplate>
   )
-  return <PlainPageTemplate title={title} reactContent={pledgeContent} />
 }
 
 export default ({ data }) => {
@@ -27,7 +36,6 @@ export default ({ data }) => {
   return (
     <PledgePageTemplate
       contentComponent={HTMLContent}
-      title={post.frontmatter.title}
       organizations={post.frontmatter.organizations}
       content={post.html}
     />

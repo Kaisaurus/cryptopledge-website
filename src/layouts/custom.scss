@@ -1,0 +1,24 @@
+.is-bg-white-ter {
+  background-color: $white-ter;
+}
+.bg-dark-green {
+  background-color: $dark-green;
+}
+.body-bg {
+  background-color: $white-ter;
+}
+.hero .navbar .navbar-item {
+  text-shadow: 2px 1px 5px $primary;
+}
+.hero .navbar {
+  background: transparent;
+}
+.navbar {
+  border-radius: 0;
+}
+.navbar .title {
+  color: $white-ter;
+}
+.navbar-burger {
+  color: $dark-green !important;
+}

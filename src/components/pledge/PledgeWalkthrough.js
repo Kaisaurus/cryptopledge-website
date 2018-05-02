@@ -34,7 +34,6 @@ export default class PledgeWalkthrough extends Component {
     const { currentStep } = this.state
     return (
       <React.Fragment>
-        {currentStep}
         <div className="steps" id="steps">
           <PledgeSteps currentStep={currentStep} steps={steps} />
           <div className="steps-content">

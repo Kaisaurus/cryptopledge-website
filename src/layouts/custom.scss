@@ -9,16 +9,21 @@
 }
 .hero .navbar .navbar-item {
   text-shadow: 2px 1px 5px $primary;
+  color: $white !important;
 }
-.hero .navbar {
+.hero .navbar,
+.hero .navbar .navbar-menu {
   background: transparent;
+}
+.hero .navbar-item {
+  text-align: right;
 }
 .navbar {
   border-radius: 0;
 }
 .navbar .title {
-  color: $white-ter;
+  color: $white;
 }
 .navbar-burger {
-  color: $dark-green !important;
+  color: $white;
 }

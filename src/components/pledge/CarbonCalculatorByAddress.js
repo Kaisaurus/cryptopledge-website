@@ -10,7 +10,6 @@ import {
   Button
 } from 'bloomer'
 import CarbonCalculatorByAddressItem from './CarbonCalculatorByAddressItem'
-import { Z_VERSION_ERROR } from 'zlib'
 
 const cryptocurrencies = {
   btc: 'Bitcoin (BTC)',

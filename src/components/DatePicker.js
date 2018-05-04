@@ -15,6 +15,7 @@ export default class DatePicker extends Component {
     })
   }
   render() {
+    console.log(moment())
     // const datePicker = new bulmaCalendar(this.datePickerElem, {
     //   startDate: new Date(), // Date selected by default
     //   dateFormat: 'yyyy-mm-dd', // the date format `field` value

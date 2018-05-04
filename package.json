@@ -34,6 +34,11 @@
     "react": "^16.2.0",
     "react-datepicker": "^1.4.1",
     "react-helmet": "^5.2.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-logger": "^3.0.6",
+    "redux-persist": "^5.9.1",
+    "redux-promise-middleware": "^5.1.1",
     "styled-components": "^3.2.1",
     "tls": "^0.0.1"
   },

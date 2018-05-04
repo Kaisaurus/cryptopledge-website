@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-// import BulmaSteps from 'bulma-steps/dist/bulma-steps.min'
 import CarbonCalculator from './CarbonCalculator'
 import PledgeSteps from './PledgeSteps'
 import { Card, CardHeader, CardContent } from 'bloomer'
 import { CardFooter } from 'bloomer/lib/components/Card/Footer/CardFooter'
 import { Button } from 'bloomer/lib/elements/Button'
+import PropTypes from 'prop-types'
 
 const steps = [
   'Calculate CO2e impact',
@@ -14,10 +14,15 @@ const steps = [
 ]
 
 export default class PledgeWalkthrough extends Component {
+  static propTypes = {
+    // pledgeData: PropTypes.object.isRequired
+    // pledgeActions: PropTypes.func.isRequired
+    // setManualItems: PropTypes.func.isRequired,
+    // clearPledgeData: PropTypes.func.isRequired
+  }
   state = {
     currentStep: 1
   }
-
   handelNextStep = () => {
     this.state.currentStep < steps.length &&
       this.setState(prevState => ({
@@ -31,7 +36,13 @@ export default class PledgeWalkthrough extends Component {
       }))
   }
   render() {
+    const {
+      pledgeData,
+      CarbonCalculatorByAddress,
+      CarbonCalculatorManual
+    } = this.props
     const { currentStep } = this.state
+
     return (
       <React.Fragment>
         <div className="steps" id="steps">
@@ -39,7 +50,13 @@ export default class PledgeWalkthrough extends Component {
           <div className="steps-content">
             <Card>
               {/* <div className="step-content has-text-centered is-active"> */}
-              {currentStep === 1 && <CarbonCalculator />}
+              {currentStep === 1 && (
+                <CarbonCalculator
+                  pledgeData={pledgeData}
+                  CarbonCalculatorByAddress={CarbonCalculatorByAddress}
+                  CarbonCalculatorManual={CarbonCalculatorManual}
+                />
+              )}
               {/* </div> */}
               {currentStep === 2 && <div>Pick org</div>}
               {currentStep === 3 && <div>Pledge</div>}

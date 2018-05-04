@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
-import { Tabs, Tab, TabList, TabLink } from 'bloomer'
-import CarbonCalculatorByAddress from './CarbonCalculatorByAddress'
-import CarbonCalculatorManual from './CarbonCalculatorManual'
-import { CardContent } from 'bloomer/lib/components/Card/CardContent'
+import { CardContent, Tabs, Tab, TabList, TabLink } from 'bloomer'
+import PropTypes from 'prop-types'
 
 export default class CarbonCalculator extends Component {
+  static propTypes = {
+    CarbonCalculatorByAddress: PropTypes.func.isRequired,
+    CarbonCalculatorManual: PropTypes.func.isRequired
+  }
   state = {
     method: 'address',
     cryptocurrency: 'btc'
   }
-
   render() {
+    const {
+      pledgeData,
+      CarbonCalculatorByAddress,
+      CarbonCalculatorManual
+    } = this.props
     const { method } = this.state
     return (
       <React.Fragment>

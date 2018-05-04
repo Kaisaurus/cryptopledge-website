@@ -4,6 +4,57 @@ import OrganizationsTable from '../components/OrganizationsTable'
 import PledgeWalkthrough from '../components/pledge/PledgeWalkthrough'
 import { PlainPageTemplate } from './plain-page'
 import { db } from '../firebase'
+import { connect } from 'react-redux'
+import CarbonCalculatorByAddress from '../components/pledge/CarbonCalculatorByAddress'
+import CarbonCalculatorManual from '../components/pledge/CarbonCalculatorManual'
+import {
+  setAddressItems,
+  addAddressItem,
+  setManualItems,
+  addManualItem,
+  clearPledgeData
+} from '../actions/pledgeActions'
+
+// const Counter = ({ count, increment }) => (
+//   <div>
+//     <p>Count: {count}</p>
+//     <button onClick={increment}>Increment</button>
+//   </div>
+// )
+
+// Counter.propTypes = {
+//   count: PropTypes.number.isRequired,
+//   increment: PropTypes.func.isRequired
+// }
+
+// const cmapStateToProps = ({ count }) => {
+//   return { count }
+// }
+
+// const cmapDispatchToProps = dispatch => {
+//   return { increment: () => dispatch({ type: `INCREMENT` }) }
+// }
+
+// const ConnectedCounter = connect(cmapStateToProps, cmapDispatchToProps)(Counter)
+
+// connecting components to redux
+const connectedCarbonCalculatorByAddress = connect(
+  ({ pledge }) => ({ addressItems: pledge.addressItems }),
+  {
+    setAddressItems,
+    addAddressItem,
+    clearPledgeData
+  }
+)(CarbonCalculatorByAddress)
+
+const connectedCarbonCalculatorManual = connect(
+  ({ pledge }) => ({ manualItems: pledge.manualItems }),
+  {
+    setManualItems,
+    addManualItem,
+    clearPledgeData
+  }
+)(CarbonCalculatorManual)
 
 export const PledgePageTemplate = ({
   title,
@@ -23,7 +74,10 @@ export const PledgePageTemplate = ({
   //   .then(snapshot => console.log(snapshot.val()))
   return (
     <PlainPageTemplate title={title}>
-      <PledgeWalkthrough />
+      <PledgeWalkthrough
+        CarbonCalculatorByAddress={connectedCarbonCalculatorByAddress}
+        CarbonCalculatorManual={connectedCarbonCalculatorManual}
+      />
       <PageContent className="content" content={content} />
       <OrganizationsTable organizations={organizations} />
     </PlainPageTemplate>

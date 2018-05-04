@@ -9,8 +9,8 @@ import {
   Select,
   Button
 } from 'bloomer'
-import DatePicker from '../DatePicker'
-
+import CarbonCalculatorManualItem from './CarbonCalculatorManualItem'
+import { cryptocurrenciesManual } from '../../util/static'
 export default class CarbonCalculatorManual extends React.Component {
   state = {
     selectedDay: undefined
@@ -18,48 +18,43 @@ export default class CarbonCalculatorManual extends React.Component {
   handleDayChange(day) {
     this.setState({ selectedDay: day })
   }
+  removeItem = i => {
+    const { manualItems, setManualItems } = this.props
+    setManualItems(manualItems.filter((item, index) => index !== i))
+  }
+  updateItem = i => key => event => {
+    const { setManualItems, manualItems } = this.props
+    const newItems = [...manualItems]
+    newItems[i][key] = event.target.value
+    setManualItems(newItems)
+  }
   render() {
+    const { addManualItem, manualItems } = this.props
     const { selectedDay } = this.state
     return (
       <React.Fragment>
+        {manualItems.map((item, i) => {
+          return (
+            <CarbonCalculatorManualItem
+              cryptocurrencies={cryptocurrenciesManual}
+              key={i}
+              index={i}
+              updateItem={this.updateItem(i)}
+              item={item}
+              removeItem={this.removeItem}
+            />
+          )
+        })}
         <Field isHorizontal>
-          <FieldLabel isNormal>
-            <Label>Cryptocurrency*</Label>
-          </FieldLabel>
+          <FieldLabel />
           <FieldBody>
-            <Control>
-              <Select>
-                <option>Bitcoin (BTC)</option>
-                <option>Bitcoin Cash (BTH)</option>
-                <option>Ethereum (ETH)</option>
-              </Select>
-            </Control>
-          </FieldBody>
-        </Field>
-        <Field isHorizontal>
-          <FieldLabel isNormal>
-            <Label>Number of Transactions*</Label>
-          </FieldLabel>
-          <FieldBody>
-            <Field>
+            <Field isGrouped>
               <Control>
-                <Input
-                  type="text"
-                  // onChange={this.props.updateItem('address')}
-                  placeholder="Number of transactions"
-                  // value={address}
-                />
+                <Button isColor="light" onClick={addManualItem}>
+                  + Add address
+                </Button>
               </Control>
             </Field>
-          </FieldBody>
-        </Field>
-
-        <Field isHorizontal>
-          <FieldLabel isNormal>
-            <Label>Transaction Date</Label>
-          </FieldLabel>
-          <FieldBody>
-            <DatePicker />
           </FieldBody>
         </Field>
       </React.Fragment>

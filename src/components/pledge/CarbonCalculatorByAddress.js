@@ -10,45 +10,32 @@ import {
   Button
 } from 'bloomer'
 import CarbonCalculatorByAddressItem from './CarbonCalculatorByAddressItem'
-
-const cryptocurrencies = {
-  btc: 'Bitcoin (BTC)',
-  bth: 'Bitcoin Cash (BTH)',
-  eth: 'Ethereum (ETH)'
-}
-
-const defaultItem = { cryptocurrency: 'btc', address: '' }
+import PropTypes from 'prop-types'
+import { cryptocurrenciesByAddress } from '../../util/static'
 
 export default class CarbonCalculatorByAddress extends React.Component {
-  state = {
-    items: [Object.assign({}, defaultItem)]
+  static propTypes = {
+    addressItems: PropTypes.array.isRequired,
+    setAddressItems: PropTypes.func.isRequired
   }
   updateItem = i => key => event => {
-    const { items } = this.state
-    const newItems = [...items]
+    const { setAddressItems, addressItems } = this.props
+    const newItems = [...addressItems]
     newItems[i][key] = event.target.value
-    this.setState({ items: newItems })
+    setAddressItems(newItems)
   }
   removeItem = i => {
-    const { items } = this.state
-    this.setState({
-      items: items.filter((item, index) => index !== i)
-    })
-  }
-  addItem = () => {
-    this.setState(prevState => {
-      return {
-        items: [...prevState.items].concat(Object.assign({}, defaultItem))
-      }
-    })
+    const { addressItems, setAddressItems } = this.props
+    setAddressItems(addressItems.filter((item, index) => index !== i))
   }
   render() {
+    const { addressItems, addAddressItem } = this.props
     return (
       <React.Fragment>
-        {this.state.items.map((item, i) => {
+        {addressItems.map((item, i) => {
           return (
             <CarbonCalculatorByAddressItem
-              cryptocurrencies={cryptocurrencies}
+              cryptocurrencies={cryptocurrenciesByAddress}
               key={i}
               index={i}
               updateItem={this.updateItem(i)}
@@ -62,7 +49,7 @@ export default class CarbonCalculatorByAddress extends React.Component {
           <FieldBody>
             <Field isGrouped>
               <Control>
-                <Button isColor="light" onClick={this.addItem}>
+                <Button isColor="light" onClick={addAddressItem}>
                   + Add address
                 </Button>
               </Control>

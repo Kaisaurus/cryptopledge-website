@@ -6,19 +6,13 @@ import {
   Label,
   Input,
   Control,
-  Select,
-  Button,
-  Icon
+  Select
 } from 'bloomer'
-import FontAwesomeIcon from '@fortawesome/react-fontawesome'
-import faTrashAlt from '@fortawesome/fontawesome-free-regular/faTrashAlt'
+import TrashButton from '../TrashButton'
 import PropTypes from 'prop-types'
 import CarbonCalculatorCryptocurrencyField from './CarbonCalculatorCryptocurrencyField'
 
 export default class CarbonCalculatorByAddressItem extends React.Component {
-  state = {
-    address: this.props.item.address
-  }
   static propTypes = {
     updateItem: PropTypes.func.isRequired,
     removeItem: PropTypes.func.isRequired,
@@ -30,7 +24,6 @@ export default class CarbonCalculatorByAddressItem extends React.Component {
     this.setState({ address: nextProps.item.address })
   render() {
     const { index, removeItem, item, cryptocurrencies, updateItem } = this.props
-    const { address } = this.state
     return (
       <React.Fragment>
         <Field isHorizontal>
@@ -43,13 +36,7 @@ export default class CarbonCalculatorByAddressItem extends React.Component {
                 cryptocurrencies={cryptocurrencies}
                 onChange={updateItem('cryptocurrency')}
               />
-              {index > 0 && (
-                <Button onClick={() => removeItem(index)}>
-                  <Icon>
-                    <FontAwesomeIcon icon={faTrashAlt} />
-                  </Icon>
-                </Button>
-              )}
+              {index > 0 && <TrashButton onClick={() => removeItem(index)} />}
             </Field>
           </FieldBody>
         </Field>
@@ -64,7 +51,7 @@ export default class CarbonCalculatorByAddressItem extends React.Component {
                   type="text"
                   onChange={this.props.updateItem('address')}
                   placeholder="Address"
-                  value={address}
+                  value={item.address}
                 />
               </Control>
             </Field>

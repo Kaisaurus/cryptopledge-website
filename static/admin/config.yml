@@ -43,14 +43,31 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "pledge-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
+          - label: "Cryptocurrencies accepted"
+            name: "pledgeCryptocurrencies"
+            widget: "list"
+              fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Abbreviation", name: "abbreviation", widget: "string"}
           - label: "Organizations"
             name: "organizations"
             widget: "list"
             fields:
-            -  {label: "Name", name: "name", widget: "string"}
-            -  {label: "Url", name: "url", widget: "string"}
-            -  {label: "Effectiveness", name: "effectiveness", widget: "string"}
-            -  {label: "Donation", name: "donation", widget: "string"}
+            - {label: "Name", name: "name", widget: "string"}
+            - {label: "Url", name: "url", widget: "string"}
+            - {label: "Effectiveness", name: "effectiveness", widget: "string"}
+            - {label: "Donation", name: "donation", widget: "string"}
+            - label: "Addresses"
+              name: "Addresses"
+              widget: "list"
+              fields:
+              - {label: "Address",name: "address", widget: "string" }
+              - label: "Cryptocurrency"
+                name: "cryptocurrency"
+                widget: "label"
+                collection: "pledgeCryptocurrencies"
+                searchFields: ["name", "abbreviation"]
+                valueField: "abbreviation"
       - file: "src/pages/research/index.md"
         label: "Research"
         name: "research"

@@ -40,12 +40,15 @@ export const PledgePageTemplate = ({
   contentComponent
 }) => {
   const PageContent = contentComponent || Content
-  const btc = db.getBitcoinKgCO2e()
-  // .then(snapshot => console.log(snapshot.val()))
-  const bth = db.getBitcoinCashKgCO2e()
-  // .then(snapshot => console.log(snapshot.val()))
-  const eth = db.getEthereumCashKgCO2e()
-  // .then(snapshot => console.log(snapshot.val()))
+  const btc = db
+    .getBitcoinKgCO2e()
+    .then(snapshot => console.log(snapshot.val()))
+  // const bth = db
+  //   .getBitcoinCashKgCO2e()
+  //   .then(snapshot => console.log(snapshot.val()))
+  const eth = db
+    .getEthereumCashKgCO2e()
+    .then(snapshot => console.log(snapshot.val()))
   // const donor = db
   //   .getDonorLeaderBoard()
   //   .then(snapshot => console.log(snapshot.val()))

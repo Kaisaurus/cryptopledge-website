@@ -8,8 +8,7 @@ export default class CarbonCalculator extends Component {
     CarbonCalculatorManual: PropTypes.func.isRequired
   }
   state = {
-    method: 'address',
-    cryptocurrency: 'btc'
+    method: 'manual'
   }
   render() {
     const {
@@ -22,14 +21,14 @@ export default class CarbonCalculator extends Component {
       <React.Fragment>
         <Tabs>
           <TabList>
-            <Tab
+            {/* <Tab
               isActive={method === 'address'}
               onClick={() => this.setState({ method: 'address' })}
             >
               <TabLink>
                 <span>By Address</span>
               </TabLink>
-            </Tab>
+            </Tab> */}
             <Tab
               isActive={method === 'manual'}
               onClick={() => this.setState({ method: 'manual' })}

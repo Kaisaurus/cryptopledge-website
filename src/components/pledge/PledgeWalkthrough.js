@@ -18,8 +18,8 @@ const steps = [
 
 export default class PledgeWalkthrough extends Component {
   static propTypes = {
-    CarbonCalculatorByAddress: PropTypes.object.isRequired,
-    CarbonCalculatorManual: PropTypes.object.isRequired
+    CarbonCalculatorByAddress: PropTypes.func.isRequired,
+    CarbonCalculatorManual: PropTypes.func.isRequired
   }
   state = {
     currentStep: 1
@@ -65,9 +65,9 @@ export default class PledgeWalkthrough extends Component {
                   CarbonCalculatorManual={CarbonCalculatorManual}
                 />
               )}
-              {currentStep === 2 && <div>Pick org</div>}
+              {currentStep === 2 && <ChooseOrganisation />}
               {currentStep === 3 && <Pledge />}
-              {currentStep === 4 && <div>Share</div>}
+              {currentStep === 4 && <Share />}
 
               <div className="step-content has-text-centered">
                 <h1 className="title is-4">Your account is now created!</h1>

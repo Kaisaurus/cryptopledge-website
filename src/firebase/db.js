@@ -12,7 +12,7 @@ import { db } from './firebase'
 //   db.ref('users').once('value');
 
 export const getBitcoinKgCO2e = () =>
-  db.ref('BitcoinKgCO2ePerTransaction').once('value')
+  db.ref('BitcoinBitcoinCashKgCO2ePerTransaction').once('value')
 
 export const getBitcoinCashKgCO2e = () =>
   db.ref('BitcoinCashKgCO2ePerTransaction').once('value')

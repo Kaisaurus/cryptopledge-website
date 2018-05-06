@@ -12,25 +12,27 @@ import {
 import CarbonCalculatorManualItem from './CarbonCalculatorManualItem'
 import { cryptocurrenciesManual } from '../../util/static'
 export default class CarbonCalculatorManual extends React.Component {
-  state = {
-    selectedDay: undefined
-  }
-  handleDayChange(day) {
-    this.setState({ selectedDay: day })
-  }
   removeItem = i => {
     const { manualItems, setManualItems } = this.props
     setManualItems(manualItems.filter((item, index) => index !== i))
   }
+  // updateDate = i => key => event => {
+  // }
   updateItem = i => key => event => {
     const { setManualItems, manualItems } = this.props
     const newItems = [...manualItems]
     newItems[i][key] = event.target.value
     setManualItems(newItems)
   }
+  handleCalculate = () => {
+    const { manualItems } = this.props
+    const filledManualItems = manualItems.filter(
+      item => item.numberOfTransactions !== 0
+    )
+    console.log(filledManualItems)
+  }
   render() {
     const { addManualItem, manualItems } = this.props
-    const { selectedDay } = this.state
     return (
       <React.Fragment>
         {manualItems.map((item, i) => {
@@ -48,8 +50,12 @@ export default class CarbonCalculatorManual extends React.Component {
         <Field isHorizontal>
           <FieldLabel />
           <FieldBody>
-            <Field isGrouped>
+            <Field>
               <Control>
+                <Button isColor="primary" onClick={this.handleCalculate}>
+                  Calculate
+                </Button>
+
                 <Button isColor="light" onClick={addManualItem}>
                   + Add address
                 </Button>

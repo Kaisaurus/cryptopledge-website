@@ -14,12 +14,14 @@ import DatePicker from '../DatePicker'
 import ReactDatePicker from 'react-datepicker'
 import moment from 'moment'
 import TrashButton from '../TrashButton'
+import { onKeyPressOnlyNumbers } from '../../util/utils'
 
 export default class CarbonCalculatorManual extends React.Component {
   static propTypes = {}
   updateDate = w => {
     console.log(w)
-    // updateItem('transactionDate')
+    console.log(this.props.item.transactionDate)
+    // w => this.props.updateItem('transactionDate')
   }
   render() {
     const { cryptocurrencies, index, updateItem, removeItem, item } = this.props
@@ -47,7 +49,8 @@ export default class CarbonCalculatorManual extends React.Component {
             <Field>
               <Control>
                 <Input
-                  type="text"
+                  onKeyPress={onKeyPressOnlyNumbers}
+                  type="number"
                   onChange={updateItem('numberOfTransactions')}
                   placeholder="Number of transactions"
                   value={item.numberOfTransactions}

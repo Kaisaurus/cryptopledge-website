@@ -2,6 +2,7 @@
 templateKey: plain-page
 title: About CryptoPledge
 ---
+
 ## What is cryptocurrency?
 
 A cryptocurrency is a digital asset designed to work as a medium of exchange that uses cryptography to secure its transactions, to control the creation of additional units, and to verify the transfer of assets. Different cryptocurrencies use different architectures -- whether a blockchain, DAG (Directed Acyclic Graph) or something else -- and each one has its own unique impact. Still in their early stages, they promise a world powered by verifiable proofs.

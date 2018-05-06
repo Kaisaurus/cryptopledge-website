@@ -46,7 +46,7 @@ collections:
           - label: "Cryptocurrencies accepted"
             name: "pledgeCryptocurrencies"
             widget: "list"
-              fields:
+            fields:
               - {label: "Name", name: "name", widget: "string"}
               - {label: "Abbreviation", name: "abbreviation", widget: "string"}
           - label: "Organizations"

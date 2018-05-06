@@ -23,3 +23,12 @@
 .steps-action:last-of-type .button {
   border-radius: 0 0 0.4em 0;
 }
+a.step-item {
+  color: $grey-light;
+}
+a.step-item.is-completed {
+  color: $grey;
+}
+a.step-item.is-active {
+  color: $black;
+}

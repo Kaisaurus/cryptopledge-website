@@ -4,28 +4,31 @@ import PropTypes from 'prop-types'
 export default class componentName extends Component {
   static propTypes = {
     steps: PropTypes.array.isRequired,
+    jumpToStep: PropTypes.func.isRequired,
     currentStep: PropTypes.number.isRequired
   }
 
   render() {
-    const { currentStep, steps } = this.props
+    const { currentStep, steps, jumpToStep } = this.props
     return (
       <React.Fragment>
         {steps.map((step, i) => {
           return (
-            <div
+            <a
+              onClick={jumpToStep(i + 1)}
               key={i}
               className={`step-item ${
                 currentStep > i + 1
                   ? 'is-completed'
                   : currentStep === i + 1 ? 'is-active' : ''
               }`}
+              href="#"
             >
               <div className="step-marker">{i + 1}</div>
               <div className="step-details">
                 <p className="step-title">{step}</p>
               </div>
-            </div>
+            </a>
           )
         })}
         {/* <div className={`step-item ${currentStep > 1 ? 'is-completed' : 'is-active'}`}>

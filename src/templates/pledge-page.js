@@ -15,29 +15,6 @@ import {
   clearPledgeData
 } from '../actions/pledgeActions'
 
-// const Counter = ({ count, increment }) => (
-//   <div>
-//     <p>Count: {count}</p>
-//     <button onClick={increment}>Increment</button>
-//   </div>
-// )
-
-// Counter.propTypes = {
-//   count: PropTypes.number.isRequired,
-//   increment: PropTypes.func.isRequired
-// }
-
-// const cmapStateToProps = ({ count }) => {
-//   return { count }
-// }
-
-// const cmapDispatchToProps = dispatch => {
-//   return { increment: () => dispatch({ type: `INCREMENT` }) }
-// }
-
-// const ConnectedCounter = connect(cmapStateToProps, cmapDispatchToProps)(Counter)
-
-// connecting components to redux
 const connectedCarbonCalculatorByAddress = connect(
   ({ pledge }) => ({ addressItems: pledge.addressItems }),
   {

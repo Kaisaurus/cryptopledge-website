@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import CarbonCalculator from './CarbonCalculator'
+import Pledge from './Pledge'
+import ChooseOrganisation from './ChooseOrganisation'
+import Share from './Share'
 import PledgeSteps from './PledgeSteps'
 import { Card, CardHeader, CardContent } from 'bloomer'
 import { CardFooter } from 'bloomer/lib/components/Card/Footer/CardFooter'
@@ -15,10 +18,8 @@ const steps = [
 
 export default class PledgeWalkthrough extends Component {
   static propTypes = {
-    // pledgeData: PropTypes.object.isRequired
-    // pledgeActions: PropTypes.func.isRequired
-    // setManualItems: PropTypes.func.isRequired,
-    // clearPledgeData: PropTypes.func.isRequired
+    CarbonCalculatorByAddress: PropTypes.object.isRequired,
+    CarbonCalculatorManual: PropTypes.object.isRequired
   }
   state = {
     currentStep: 1
@@ -35,6 +36,10 @@ export default class PledgeWalkthrough extends Component {
         currentStep: prevState.currentStep - 1
       }))
   }
+  jumpToStep = i => event => {
+    event.preventDefault()
+    this.setState({ currentStep: i })
+  }
   render() {
     const {
       pledgeData,
@@ -46,10 +51,13 @@ export default class PledgeWalkthrough extends Component {
     return (
       <React.Fragment>
         <div className="steps" id="steps">
-          <PledgeSteps currentStep={currentStep} steps={steps} />
+          <PledgeSteps
+            currentStep={currentStep}
+            jumpToStep={this.jumpToStep}
+            steps={steps}
+          />
           <div className="steps-content">
             <Card>
-              {/* <div className="step-content has-text-centered is-active"> */}
               {currentStep === 1 && (
                 <CarbonCalculator
                   pledgeData={pledgeData}
@@ -57,9 +65,8 @@ export default class PledgeWalkthrough extends Component {
                   CarbonCalculatorManual={CarbonCalculatorManual}
                 />
               )}
-              {/* </div> */}
               {currentStep === 2 && <div>Pick org</div>}
-              {currentStep === 3 && <div>Pledge</div>}
+              {currentStep === 3 && <Pledge />}
               {currentStep === 4 && <div>Share</div>}
 
               <div className="step-content has-text-centered">

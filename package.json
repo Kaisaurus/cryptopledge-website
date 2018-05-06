@@ -31,6 +31,7 @@
     "moment": "^2.22.1",
     "net": "^1.0.2",
     "prop-types": "^15.6.0",
+    "qrcode.react": "^0.8.0",
     "react": "^16.2.0",
     "react-datepicker": "^1.4.1",
     "react-helmet": "^5.2.0",

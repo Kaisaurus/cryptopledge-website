@@ -1,6 +1,13 @@
 ---
 templateKey: pledge-page
 title: Pledge
+pledgeCryptocurrencies:
+  - abbreviation: Bitcoin
+    name: BTC
+  - abbreviation: Bitcoin Cash
+    name: BTH
+  - abbreviation: ETH
+    name: Ethereum
 organizations:
   - donation: '0.32'
     effectiveness: '1.1'

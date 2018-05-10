@@ -64,7 +64,7 @@ collections:
               - {label: "Address",name: "address", widget: "string" }
               - label: "Cryptocurrency"
                 name: "cryptocurrency"
-                widget: "label"
+                widget: "relation"
                 collection: "pledgeCryptocurrencies"
                 searchFields: ["name", "abbreviation"]
                 valueField: "abbreviation"

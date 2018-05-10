@@ -32,18 +32,19 @@ export default class CarbonCalculatorByAddress extends React.Component {
     const { addressItems, addAddressItem } = this.props
     return (
       <React.Fragment>
-        {addressItems.map((item, i) => {
-          return (
-            <CarbonCalculatorByAddressItem
-              cryptocurrencies={cryptocurrenciesByAddress}
-              key={i}
-              index={i}
-              updateItem={this.updateItem(i)}
-              item={item}
-              removeItem={this.removeItem}
-            />
-          )
-        })}
+        {addressItems &&
+          addressItems.map((item, i) => {
+            return (
+              <CarbonCalculatorByAddressItem
+                cryptocurrencies={cryptocurrenciesByAddress}
+                key={i}
+                index={i}
+                updateItem={this.updateItem(i)}
+                item={item}
+                removeItem={this.removeItem}
+              />
+            )
+          })}
         <Field isHorizontal>
           <FieldLabel />
           <FieldBody>

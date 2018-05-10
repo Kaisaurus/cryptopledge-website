@@ -3,6 +3,25 @@ import { defaultState, defaultAddressItem, defaultManualItem } from './defaults'
 
 export default (state = defaultState, action) => {
   switch (action.type) {
+    case types.GET_CO2_DATA:
+      return {
+        ...state,
+        CO2DataStatus: 'getting',
+        CO2Data: {}
+      }
+    case types.GET_CO2_DATA_FULFILLED: {
+      return {
+        ...state,
+        CO2DataStatus: 'fulfilled',
+        CO2Data: action.payload
+      }
+    }
+    case types.GET_CO2_DATA_FAILED: {
+      return {
+        ...state,
+        CO2DataStatus: 'failed'
+      }
+    }
     case types.SET_ADDRESS_ITEMS:
       return {
         ...state,

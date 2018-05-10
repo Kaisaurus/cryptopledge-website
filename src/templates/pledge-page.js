@@ -7,16 +7,21 @@ import { db } from '../firebase'
 import { connect } from 'react-redux'
 import CarbonCalculatorByAddress from '../components/pledge/CarbonCalculatorByAddress'
 import CarbonCalculatorManual from '../components/pledge/CarbonCalculatorManual'
+import CO2PerTransactionGraph from '../components/pledge/CO2PerTransactionGraph'
 import {
   setAddressItems,
   addAddressItem,
   setManualItems,
   addManualItem,
-  clearPledgeData
+  clearPledgeData,
+  getCO2Data
 } from '../actions/pledgeActions'
 
-const connectedCarbonCalculatorByAddress = connect(
-  ({ pledge }) => ({ addressItems: pledge.addressItems }),
+const ConnectedCarbonCalculatorByAddress = connect(
+  ({ pledge }) => ({
+    addressItems: pledge.addressItems,
+    CO2Data: pledge.CO2Data
+  }),
   {
     setAddressItems,
     addAddressItem,
@@ -24,14 +29,25 @@ const connectedCarbonCalculatorByAddress = connect(
   }
 )(CarbonCalculatorByAddress)
 
-const connectedCarbonCalculatorManual = connect(
-  ({ pledge }) => ({ manualItems: pledge.manualItems }),
+const ConnectedCarbonCalculatorManual = connect(
+  ({ pledge }) => ({
+    manualItems: pledge.manualItems,
+    CO2Data: pledge.CO2Data
+  }),
   {
     setManualItems,
     addManualItem,
     clearPledgeData
   }
 )(CarbonCalculatorManual)
+
+const ConnectedCO2PerTransactionGraph = connect(
+  ({ pledge }) => ({
+    CO2Data: pledge.CO2Data,
+    CO2DataStatus: pledge.CO2DataStatus
+  }),
+  { getCO2Data }
+)(CO2PerTransactionGraph)
 
 export const PledgePageTemplate = ({
   title,
@@ -40,24 +56,26 @@ export const PledgePageTemplate = ({
   contentComponent
 }) => {
   const PageContent = contentComponent || Content
-  const btc = db
-    .getBitcoinKgCO2e()
-    .then(snapshot => console.log(snapshot.val()))
+  // const btc = db
+  //   .getBitcoinKgCO2e()
+  //   .then(snapshot => console.log(snapshot.val()))
   // const bth = db
   //   .getBitcoinCashKgCO2e()
   //   .then(snapshot => console.log(snapshot.val()))
-  const eth = db
-    .getEthereumCashKgCO2e()
-    .then(snapshot => console.log(snapshot.val()))
+  // const eth = db
+  //   .getEthereumCashKgCO2e()
+  //   .then(snapshot => console.log(snapshot.val()))
   // const donor = db
   //   .getDonorLeaderBoard()
   //   .then(snapshot => console.log(snapshot.val()))
   return (
     <PlainPageTemplate title={title}>
       <PledgeWalkthrough
-        CarbonCalculatorByAddress={connectedCarbonCalculatorByAddress}
-        CarbonCalculatorManual={connectedCarbonCalculatorManual}
+        CarbonCalculatorByAddress={ConnectedCarbonCalculatorByAddress}
+        CarbonCalculatorManual={ConnectedCarbonCalculatorManual}
+        organizations={organizations}
       />
+      <ConnectedCO2PerTransactionGraph />
       <PageContent className="content" content={content} />
       <OrganizationsTable organizations={organizations} />
     </PlainPageTemplate>

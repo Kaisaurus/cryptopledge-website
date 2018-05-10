@@ -11,6 +11,12 @@ import { db } from './firebase'
 // export const onceGetUsers = () =>
 //   db.ref('users').once('value');
 
+export const getAllKgCO2eData = type =>
+  db.ref(`KgCO2PerTransaction`).once('value')
+
+export const getKgCO2e = type =>
+  db.ref(`KgCO2PerTransaction/${type}`).once('value')
+
 export const getBitcoinKgCO2e = () =>
   db.ref('BitcoinBitcoinCashKgCO2ePerTransaction').once('value')
 

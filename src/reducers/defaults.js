@@ -14,5 +14,7 @@ export const defaultManualItem = {
 }
 export const defaultState = {
   addressItems: [Object.assign({}, defaultAddressItem)],
-  manualItems: [Object.assign({}, defaultManualItem)]
+  manualItems: [Object.assign({}, defaultManualItem)],
+  CO2Data: {},
+  CO2DataStatus: 'init'
 }

@@ -69,7 +69,7 @@ export const mediumPageQuery = graphql`
 //   )
 //   return await resp.json()
 // }
-function getMediumFeed(appendResp, username = '@kaigotoh') {
+function getMediumFeed(appendResp, username = '@benjaminhardy') {
   const mediumUrl = `https://medium.com/feed/${username}`
   fetch(`https://api.rss2json.com/v1/api.json?rss_url=${mediumUrl}`).then(
     resp => appendResp(resp.json())

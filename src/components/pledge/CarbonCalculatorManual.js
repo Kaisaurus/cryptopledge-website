@@ -16,20 +16,22 @@ export default class CarbonCalculatorManual extends React.Component {
     const { manualItems, setManualItems } = this.props
     setManualItems(manualItems.filter((item, index) => index !== i))
   }
-  // updateDate = i => key => event => {
-  // }
-  updateItem = i => key => event => {
+  updateInputItem = i => key => event => {
+    // const { setManualItems, manualItems } = this.props
+    // const newItems = [...manualItems]
+    // newItems[i][key] = event.target.value
+    // setManualItems(newItems)
+    this.updateItem(i)(key)(event.target.value)
+  }
+  updateItem = i => key => value => {
     const { setManualItems, manualItems } = this.props
     const newItems = [...manualItems]
-    newItems[i][key] = event.target.value
+    newItems[i][key] = value
     setManualItems(newItems)
   }
   handleCalculate = () => {
-    const { manualItems } = this.props
-    const filledManualItems = manualItems.filter(
-      item => item.numberOfTransactions !== 0
-    )
-    console.log(filledManualItems)
+    const { manualItems, setManualItems } = this.props
+    setManualItems(manualItems.filter(item => item.numberOfTransactions !== 0))
   }
   render() {
     const { addManualItem, manualItems } = this.props
@@ -42,6 +44,7 @@ export default class CarbonCalculatorManual extends React.Component {
               key={i}
               index={i}
               updateItem={this.updateItem(i)}
+              updateInputItem={this.updateInputItem(i)}
               item={item}
               removeItem={this.removeItem}
             />
@@ -56,9 +59,7 @@ export default class CarbonCalculatorManual extends React.Component {
                   Calculate
                 </Button>
 
-                <Button isColor="light" onClick={addManualItem}>
-                  + Add address
-                </Button>
+                <Button onClick={addManualItem}>+ Add address</Button>
               </Control>
             </Field>
           </FieldBody>

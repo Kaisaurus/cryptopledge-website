@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import CarbonCalculator from './CarbonCalculator'
 import Pledge from './Pledge'
-import ChooseOrganisation from './ChooseOrganisation'
 import Share from './Share'
 import PledgeSteps from './PledgeSteps'
 import { Card, CardHeader, CardContent } from 'bloomer'
@@ -19,7 +18,8 @@ const steps = [
 export default class PledgeWalkthrough extends Component {
   static propTypes = {
     CarbonCalculatorByAddress: PropTypes.func.isRequired,
-    CarbonCalculatorManual: PropTypes.func.isRequired
+    CarbonCalculatorManual: PropTypes.func.isRequired,
+    ChooseOrganisation: PropTypes.func.isRequired
   }
   state = {
     currentStep: 1
@@ -44,7 +44,9 @@ export default class PledgeWalkthrough extends Component {
     const {
       pledgeData,
       CarbonCalculatorByAddress,
-      CarbonCalculatorManual
+      organizations,
+      CarbonCalculatorManual,
+      ChooseOrganisation
     } = this.props
     const { currentStep } = this.state
 
@@ -65,13 +67,15 @@ export default class PledgeWalkthrough extends Component {
                   CarbonCalculatorManual={CarbonCalculatorManual}
                 />
               )}
-              {currentStep === 2 && <ChooseOrganisation />}
+              {currentStep === 2 && (
+                <ChooseOrganisation organizations={organizations} />
+              )}
               {currentStep === 3 && <Pledge />}
               {currentStep === 4 && <Share />}
 
-              <div className="step-content has-text-centered">
+              {/* <div className="step-content has-text-centered">
                 <h1 className="title is-4">Your account is now created!</h1>
-              </div>
+              </div> */}
               <CardFooter>
                 <div className="steps-actions">
                   <div className="steps-action">

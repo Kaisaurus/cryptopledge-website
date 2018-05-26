@@ -18,13 +18,19 @@ import { onKeyPressOnlyNumbers } from '../../util/utils'
 
 export default class CarbonCalculatorManual extends React.Component {
   static propTypes = {}
-  updateDate = w => {
-    console.log(w)
+  updateDate = date => {
     console.log(this.props.item.transactionDate)
     // w => this.props.updateItem('transactionDate')
   }
   render() {
-    const { cryptocurrencies, index, updateItem, removeItem, item } = this.props
+    const {
+      cryptocurrencies,
+      index,
+      updateItem,
+      updateInputItem,
+      removeItem,
+      item
+    } = this.props
     return (
       <React.Fragment>
         <Field isHorizontal>
@@ -35,7 +41,7 @@ export default class CarbonCalculatorManual extends React.Component {
             <Field isGrouped>
               <CarbonCalculatorCryptocurrencyField
                 cryptocurrencies={cryptocurrencies}
-                onChange={updateItem('cryptocurrency')}
+                onChange={updateInputItem('cryptocurrency')}
               />
               {index > 0 && <TrashButton onClick={() => removeItem(index)} />}
             </Field>
@@ -51,7 +57,7 @@ export default class CarbonCalculatorManual extends React.Component {
                 <Input
                   onKeyPress={onKeyPressOnlyNumbers}
                   type="number"
-                  onChange={updateItem('numberOfTransactions')}
+                  onChange={updateInputItem('numberOfTransactions')}
                   placeholder="Number of transactions"
                   value={item.numberOfTransactions}
                 />
@@ -69,7 +75,7 @@ export default class CarbonCalculatorManual extends React.Component {
               className="input"
               dateFormat="L"
               selected={item.transactionDate}
-              onChange={this.updateDate}
+              onChange={updateItem('transactionDate')}
             />
           </FieldBody>
         </Field>

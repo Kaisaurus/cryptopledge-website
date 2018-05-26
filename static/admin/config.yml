@@ -36,6 +36,7 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "about-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
+          - {label: "Background Image", name: bgImage, widget: image}
       - file: "src/pages/pledge/index.md"
         label: "Pledge"
         name: "pledge"
@@ -75,6 +76,7 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "research-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Body", name: "body", widget: "markdown"}
+          - {label: "Background Image", name: bgImage, widget: image}
       - file: "src/pages/blog/index.md"
         label: "Medium"
         name: "medium"

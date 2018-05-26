@@ -14,7 +14,7 @@ import { cryptocurrenciesManual } from '../../util/static'
 
 export default class CO2PerTransactionGraph extends Component {
   static propTypes = {
-    CO2Data: PropTypes.object.isRequired,
+    CO2Data: PropTypes.array.isRequired,
     CO2DataStatus: PropTypes.string.isRequired,
     getCO2Data: PropTypes.func.isRequired
   }
@@ -24,19 +24,8 @@ export default class CO2PerTransactionGraph extends Component {
     CO2DataStatus === 'init' && getCO2Data()
     const data = CO2DataStatus === 'fulfilled' && CO2Data
     // Object.entries(CO2Data.btc).map(([date, value]) => ({ date, value }))
-    const dataE = [
-      { name: 'Page A', uv: 4000, pv: 2400, amt: 2400 },
-      { name: 'Page B', uv: 3000, pv: 1398, amt: 2210 },
-      { name: 'Page C', uv: 2000, pv: 9800, amt: 2290 },
-      { name: 'Page D', uv: 2780, pv: 3908, amt: 2000 },
-      { name: 'Page E', uv: 1890, pv: 4800, amt: 2181 },
-      { name: 'Page F', uv: 2390, pv: 3800, amt: 2500 },
-      { name: 'Page G', uv: 3490, pv: 4300, amt: 2100 }
-    ]
-
     return (
       <div>
-        {/* {CO2DataStatus === 'fulfilled' && data} */}
         {CO2DataStatus === 'fulfilled' && (
           // <LineChart width={400} height={400} data={dataE}>
 
@@ -59,7 +48,7 @@ export default class CO2PerTransactionGraph extends Component {
             <Line
               type="monotone"
               dataKey="date"
-              // tickFormatter={}
+              tickFormatter={date => date}
               stroke="#8884d8"
               activeDot={{ r: 8 }}
             />

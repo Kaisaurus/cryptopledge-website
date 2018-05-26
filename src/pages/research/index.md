@@ -1,5 +1,6 @@
 ---
 templateKey: plain-page
+bgImage: 'test_img'
 title: Research
 ---
 

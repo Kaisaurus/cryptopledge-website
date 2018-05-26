@@ -8,7 +8,9 @@ import { connect } from 'react-redux'
 import CarbonCalculatorByAddress from '../components/pledge/CarbonCalculatorByAddress'
 import CarbonCalculatorManual from '../components/pledge/CarbonCalculatorManual'
 import CO2PerTransactionGraph from '../components/pledge/CO2PerTransactionGraph'
+import ChooseOrganisation from '../components/pledge/ChooseOrganisation'
 import {
+  setPledgeOrganizations,
   setAddressItems,
   addAddressItem,
   setManualItems,
@@ -49,6 +51,13 @@ const ConnectedCO2PerTransactionGraph = connect(
   { getCO2Data }
 )(CO2PerTransactionGraph)
 
+const ConnectedChooseOrganisation = connect(
+  ({ pledge }) => ({
+    pledgeOrganizations: pledge.pledgeOrganizations
+  }),
+  { setPledgeOrganizations }
+)(ChooseOrganisation)
+
 export const PledgePageTemplate = ({
   title,
   content,
@@ -73,11 +82,12 @@ export const PledgePageTemplate = ({
       <PledgeWalkthrough
         CarbonCalculatorByAddress={ConnectedCarbonCalculatorByAddress}
         CarbonCalculatorManual={ConnectedCarbonCalculatorManual}
+        ChooseOrganisation={ConnectedChooseOrganisation}
         organizations={organizations}
       />
       <ConnectedCO2PerTransactionGraph />
       <PageContent className="content" content={content} />
-      <OrganizationsTable organizations={organizations} />
+      <OrganizationsTable organizations={organizations} id="organizations" />
     </PlainPageTemplate>
   )
 }

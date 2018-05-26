@@ -6,8 +6,7 @@ export default (state = defaultState, action) => {
     case types.GET_CO2_DATA:
       return {
         ...state,
-        CO2DataStatus: 'getting',
-        CO2Data: {}
+        CO2DataStatus: 'getting'
       }
     case types.GET_CO2_DATA_FULFILLED: {
       return {
@@ -16,12 +15,17 @@ export default (state = defaultState, action) => {
         CO2Data: action.payload
       }
     }
-    case types.GET_CO2_DATA_FAILED: {
+    case types.GET_CO2_DATA_FAILED:
       return {
         ...state,
         CO2DataStatus: 'failed'
       }
-    }
+
+    case types.SET_PLEDGE_ORGANIZATIONS:
+      return {
+        ...state,
+        pledgeOrganizations: action.payload
+      }
     case types.SET_ADDRESS_ITEMS:
       return {
         ...state,

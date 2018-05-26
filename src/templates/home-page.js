@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import home_bg from '../img/cryptopledge-home-1344.jpg'
 import { Container, Title, Subtitle, Hero, HeroBody } from 'bloomer'
 import MainNavbar from '../components/MainNavbar'
+import Link from 'gatsby-link'
 
 const HomeHero = styled(Hero)`
   background-image: url(${home_bg});
@@ -16,7 +17,7 @@ const HomeContent = styled.section`
 const PledgeHeader = styled.h1`
   line-height: 1.8em;
 `
-const PledgeBtn = styled.a`
+const PledgeBtn = styled(Link)`
   margin: 0 15px;
 `
 
@@ -46,7 +47,7 @@ export const HomePageTemplate = ({
           <HeroBody>
             <Container>
               <PledgeHeader className="title has-text-centered">
-                <PledgeBtn className="button is-link is-large">
+                <PledgeBtn className="button is-link is-large" to="/pledge">
                   Pledge
                 </PledgeBtn>
                 Join others and offset your crypto carbon footprint today{' '}

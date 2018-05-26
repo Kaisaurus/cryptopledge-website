@@ -2,6 +2,17 @@ import * as types from './types'
 import { db } from '../firebase'
 import moment from 'moment'
 
+function CO2DataObjToArr(CO2DataObj) {
+  return Object.entries(CO2DataObj).reduce((acc, entry) => {
+    const entryObj = {
+      date: moment(entry[0], 'MM-DD-YYYY').format('L'),
+      value: entry[1]
+    }
+    acc.push(entryObj)
+    return acc
+  }, [])
+}
+
 export function getCO2Data() {
   return dispatch => {
     dispatch({ type: types.GET_CO2_DATA })
@@ -9,20 +20,21 @@ export function getCO2Data() {
       .getAllKgCO2eData()
       .then(snapshot => {
         const data = snapshot.val()
-        const formattedData = {}
-
-        Object.keys(data).map(crypto => {
-          // formattedData[crypto] = data[crypto]
-          // console.log(crypto, data[crypto])
-          Object.keys(data[crypto]).map(
-            date => console.log(date, data[crypto][date])
-            // console.log(item, moment(item[0]).format('MMM Do YY'))
-          )
+        let formattedData = {}
+        Object.keys(data).map(key => {
+          formattedData[key] = CO2DataObjToArr(data[key])
         })
-        // console.log(formattedData, data)
+        // formattedData = Object.keys(data).reduce((acc, crypto) => {
+        //   acc[crypto] = Object.entries(data[crypto]).reduce((acc2, entry) => {
+        //     formattedData.push({
+        //       date: moment(entry[0], 'MM-DD-YYYY').format('L'),
+        //       value: entry[1]
+        //     })
+        //   }, [])
+        // }, {})
         dispatch({
           type: types.GET_CO2_DATA_FULFILLED,
-          payload: snapshot.val()
+          payload: formattedData
         })
       })
       .catch(error => {
@@ -31,6 +43,12 @@ export function getCO2Data() {
       })
   }
 }
+export function setPledgeOrganizations(data) {
+  return dispatch => {
+    dispatch({ type: types.SET_PLEDGE_ORGANIZATIONS, payload: data })
+  }
+}
+
 export function setAddressItems(data) {
   return dispatch => {
     dispatch({ type: types.SET_ADDRESS_ITEMS, payload: data })

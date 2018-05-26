@@ -1,6 +1,7 @@
 ---
 templateKey: plain-page
 title: About CryptoPledge
+bgImage: 'test_img'
 ---
 
 ## What is cryptocurrency?

@@ -9,7 +9,10 @@ pledgeCryptocurrencies:
   - abbreviation: ETH
     name: Ethereum
 organizations:
-  - donation: '0.32'
+  - Addresses:
+      - address: 1EiGFTC2avw8CpfTUbVgUyaNQHFanebHyG
+        cryptocurrency: btc
+    donation: '0.32'
     effectiveness: '1.1'
     name: Cool Earth
     url: 'https://www.coolearth.org/'

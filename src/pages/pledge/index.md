@@ -2,10 +2,10 @@
 templateKey: pledge-page
 title: Pledge
 pledgeCryptocurrencies:
-  - abbreviation: Bitcoin
-    name: BTC
-  - abbreviation: Bitcoin Cash
-    name: BTH
+  - abbreviation: BTC
+    name: Bitcoin
+  - abbreviation: BTH
+    name: Bitcoin Cash
   - abbreviation: ETH
     name: Ethereum
 organizations:

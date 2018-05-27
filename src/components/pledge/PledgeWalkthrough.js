@@ -10,7 +10,7 @@ import PropTypes from 'prop-types'
 
 const steps = [
   'Calculate CO2e impact',
-  'Choose Organisation',
+  // 'Choose Organisation',
   'Pledge',
   'Share'
 ]
@@ -67,11 +67,11 @@ export default class PledgeWalkthrough extends Component {
                   CarbonCalculatorManual={CarbonCalculatorManual}
                 />
               )}
-              {currentStep === 2 && (
+              {/* {currentStep === 2 && (
                 <ChooseOrganisation organizations={organizations} />
-              )}
-              {currentStep === 3 && <Pledge />}
-              {currentStep === 4 && <Share />}
+              )} */}
+              {currentStep === 2 && <Pledge />}
+              {currentStep === 3 && <Share />}
 
               {/* <div className="step-content has-text-centered">
                 <h1 className="title is-4">Your account is now created!</h1>

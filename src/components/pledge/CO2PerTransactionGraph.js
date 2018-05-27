@@ -14,7 +14,7 @@ import { cryptocurrenciesManual } from '../../util/static'
 
 export default class CO2PerTransactionGraph extends Component {
   static propTypes = {
-    CO2Data: PropTypes.array.isRequired,
+    CO2Data: PropTypes.object.isRequired,
     CO2DataStatus: PropTypes.string.isRequired,
     getCO2Data: PropTypes.func.isRequired
   }
@@ -22,7 +22,7 @@ export default class CO2PerTransactionGraph extends Component {
   render() {
     const { CO2Data, CO2DataStatus, getCO2Data } = this.props
     CO2DataStatus === 'init' && getCO2Data()
-    const data = CO2DataStatus === 'fulfilled' && CO2Data
+    const data = CO2DataStatus === 'fulfilled' && CO2Data.btc
     // Object.entries(CO2Data.btc).map(([date, value]) => ({ date, value }))
     return (
       <div>

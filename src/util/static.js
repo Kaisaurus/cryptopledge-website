@@ -1,10 +1,10 @@
-export const cryptocurrenciesManual = {
-  btc: 'Bitcoin (BTC)',
-  bth: 'Bitcoin Cash (BTH)',
-  eth: 'Ethereum (ETH)'
-}
-export const cryptocurrenciesByAddress = {
-  btc: 'Bitcoin (BTC)',
-  bth: 'Bitcoin Cash (BTH)',
-  eth: 'Ethereum (ETH)'
-}
+export const cryptocurrenciesManual = [
+  { data: 'btc', label: 'Bitcoin (BTC)' },
+  { data: 'btc', label: 'Bitcoin Cash (BTH)' },
+  { data: 'eth', label: 'Ethereum (ETH)' }
+]
+export const cryptocurrenciesByAddress = [
+  { data: 'btc', label: 'Bitcoin (BTC)' },
+  { data: 'btc', label: 'Bitcoin Cash (BTH)' },
+  { data: 'eth', label: 'Ethereum (ETH)' }
+]

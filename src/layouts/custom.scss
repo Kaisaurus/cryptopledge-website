@@ -30,3 +30,7 @@
 .field .button {
   margin-right: 0.7em;
 }
+.react-datepicker-popper {
+  // this is required to not get the <select> arrow overlapping the datepicker
+  z-index: 5 !important;
+}

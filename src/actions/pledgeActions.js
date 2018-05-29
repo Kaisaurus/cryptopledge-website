@@ -5,7 +5,7 @@ import moment from 'moment'
 function CO2DataObjToArr(CO2DataObj) {
   return Object.entries(CO2DataObj).reduce((acc, entry) => {
     const entryObj = {
-      date: moment(entry[0], 'MM-DD-YYYY').format('L'),
+      date: moment(entry[0], 'MM-DD-YYYY').format('DD-MM-YYYY'),
       value: entry[1]
     }
     acc.push(entryObj)

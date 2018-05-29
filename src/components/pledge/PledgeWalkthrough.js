@@ -17,9 +17,9 @@ const steps = [
 
 export default class PledgeWalkthrough extends Component {
   static propTypes = {
-    CarbonCalculatorByAddress: PropTypes.func.isRequired,
-    CarbonCalculatorManual: PropTypes.func.isRequired,
-    ChooseOrganisation: PropTypes.func.isRequired
+    // CarbonCalculatorByAddress: PropTypes.func.isRequired,
+    CarbonCalculatorManual: PropTypes.func.isRequired
+    // ChooseOrganisation: PropTypes.func.isRequired
   }
   state = {
     currentStep: 1
@@ -41,15 +41,8 @@ export default class PledgeWalkthrough extends Component {
     this.setState({ currentStep: i })
   }
   render() {
-    const {
-      pledgeData,
-      CarbonCalculatorByAddress,
-      organizations,
-      CarbonCalculatorManual,
-      ChooseOrganisation
-    } = this.props
+    const { organizations, CarbonCalculatorManual } = this.props
     const { currentStep } = this.state
-
     return (
       <React.Fragment>
         <div className="steps" id="steps">
@@ -62,8 +55,7 @@ export default class PledgeWalkthrough extends Component {
             <Card>
               {currentStep === 1 && (
                 <CarbonCalculator
-                  pledgeData={pledgeData}
-                  CarbonCalculatorByAddress={CarbonCalculatorByAddress}
+                  // CarbonCalculatorByAddress={CarbonCalculatorByAddress}
                   CarbonCalculatorManual={CarbonCalculatorManual}
                 />
               )}

@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import QRCode from 'qrcode.react'
 import { Container, Title, Button } from 'bloomer'
 import coolEarthLogo from '../../../static/img/coolearth_logo.svg'
+import QRCodeModal from './QRCodeModal'
 
 const organizations = [
   {
@@ -28,22 +28,47 @@ const organizations = [
   }
 ]
 
+const defaultState = {
+  QRCodeIsActive: false,
+  QRCodeValue: '',
+  QRCodeCryptocurrency: '',
+  organizationName: ''
+}
+
 export default class Pledge extends Component {
   static propTypes = {}
 
+  state = defaultState
+
+  revealQRCode = (organizationName, QRCodeValue, QRCodeCryptocurrency) => e => {
+    this.setState({
+      organizationName,
+      QRCodeIsActive: true,
+      QRCodeValue,
+      QRCodeCryptocurrency
+    })
+  }
+  hideQRCode = e => {
+    this.setState(defaultState)
+  }
   render() {
+    const {
+      organizationName,
+      QRCodeValue,
+      QRCodeIsActive,
+      QRCodeCryptocurrency
+    } = this.state
     return (
       <Container hasTextAlign="centered">
         <Title isSize={4}>
           At the moment Cool Earth is the only organisation which accepts
           cryptocurrency donations{' '}
         </Title>
-
         <table className="table is-narrower is-hoverable">
           <thead>
             <tr>
               <th>Organization</th>
-              <th>Accepted Cryptocurrency</th>
+              <th>Cryptocurrency</th>
               <th>Address</th>
               <th />
               <th />
@@ -53,30 +78,42 @@ export default class Pledge extends Component {
             {organizations.map((organization, i) => {
               return organization.addresses.map((item, i) => {
                 return (
-                  <tr>
+                  <tr key={i}>
                     {i === 0 && (
                       <React.Fragment>
                         <td rowSpan={organization.addresses.length}>
                           <img src={coolEarthLogo} />
-                          Cool Earth
                         </td>
                       </React.Fragment>
                     )}
 
-                    <React.Fragment key={i}>
-                      <td>{item.cryptocurrency}</td>
-                      <td>{item.address}</td>
-                      <td>
-                        <Button isColor="primary">reveal QR code</Button>
-                      </td>
-                    </React.Fragment>
+                    <td>{item.cryptocurrency}</td>
+                    <td>{item.address}</td>
+                    <td>
+                      <Button
+                        isColor="primary"
+                        onClick={this.revealQRCode(
+                          organization.name,
+                          item.address,
+                          item.cryptocurrency
+                        )}
+                      >
+                        reveal QR code
+                      </Button>
+                    </td>
                   </tr>
                 )
               })
             })}
           </tbody>
         </table>
-        {/* <QRCode value="boo" level="H" /> */}
+        <QRCodeModal
+          value={QRCodeValue}
+          isActive={QRCodeIsActive}
+          hideQRCode={this.hideQRCode}
+          cryptocurrency={QRCodeCryptocurrency}
+          organizationName={organizationName}
+        />
       </Container>
     )
   }

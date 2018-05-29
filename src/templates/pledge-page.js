@@ -3,12 +3,11 @@ import Content, { HTMLContent } from '../components/Content'
 import OrganizationsTable from '../components/OrganizationsTable'
 import PledgeWalkthrough from '../components/pledge/PledgeWalkthrough'
 import { PlainPageTemplate } from './plain-page'
-import { db } from '../firebase'
 import { connect } from 'react-redux'
 import CarbonCalculatorByAddress from '../components/pledge/CarbonCalculatorByAddress'
 import CarbonCalculatorManual from '../components/pledge/CarbonCalculatorManual'
 import CO2PerTransactionGraph from '../components/pledge/CO2PerTransactionGraph'
-import ChooseOrganisation from '../components/pledge/ChooseOrganisation'
+// import ChooseOrganisation from '../components/pledge/ChooseOrganisation'
 import {
   setPledgeOrganizations,
   setAddressItems,
@@ -19,21 +18,22 @@ import {
   getCO2Data
 } from '../actions/pledgeActions'
 
-const ConnectedCarbonCalculatorByAddress = connect(
-  ({ pledge }) => ({
-    addressItems: pledge.addressItems,
-    CO2Data: pledge.CO2Data
-  }),
-  {
-    setAddressItems,
-    addAddressItem,
-    clearPledgeData
-  }
-)(CarbonCalculatorByAddress)
+// const ConnectedCarbonCalculatorByAddress = connect(
+//   ({ pledge }) => ({
+//     addressItems: pledge.addressItems,
+//     CO2Data: pledge.CO2Data
+//   }),
+//   {
+//     setAddressItems,
+//     addAddressItem,
+//     clearPledgeData
+//   }
+// )(CarbonCalculatorByAddress)
 
 const ConnectedCarbonCalculatorManual = connect(
   ({ pledge }) => ({
     manualItems: pledge.manualItems,
+    CO2DataRange: pledge.CO2DataRange,
     CO2Data: pledge.CO2Data
   }),
   {
@@ -51,12 +51,12 @@ const ConnectedCO2PerTransactionGraph = connect(
   { getCO2Data }
 )(CO2PerTransactionGraph)
 
-const ConnectedChooseOrganisation = connect(
-  ({ pledge }) => ({
-    pledgeOrganizations: pledge.pledgeOrganizations
-  }),
-  { setPledgeOrganizations }
-)(ChooseOrganisation)
+// const ConnectedChooseOrganisation = connect(
+//   ({ pledge }) => ({
+//     pledgeOrganizations: pledge.pledgeOrganizations
+//   }),
+//   { setPledgeOrganizations }
+// )(ChooseOrganisation)
 
 export const PledgePageTemplate = ({
   title,
@@ -65,24 +65,12 @@ export const PledgePageTemplate = ({
   contentComponent
 }) => {
   const PageContent = contentComponent || Content
-  // const btc = db
-  //   .getBitcoinKgCO2e()
-  //   .then(snapshot => console.log(snapshot.val()))
-  // const bth = db
-  //   .getBitcoinCashKgCO2e()
-  //   .then(snapshot => console.log(snapshot.val()))
-  // const eth = db
-  //   .getEthereumCashKgCO2e()
-  //   .then(snapshot => console.log(snapshot.val()))
-  // const donor = db
-  //   .getDonorLeaderBoard()
-  //   .then(snapshot => console.log(snapshot.val()))
   return (
     <PlainPageTemplate title={title}>
       <PledgeWalkthrough
-        CarbonCalculatorByAddress={ConnectedCarbonCalculatorByAddress}
+        // CarbonCalculatorByAddress={ConnectedCarbonCalculatorByAddress}
         CarbonCalculatorManual={ConnectedCarbonCalculatorManual}
-        ChooseOrganisation={ConnectedChooseOrganisation}
+        // ChooseOrganisation={ConnectedChooseOrganisation}
         organizations={organizations}
       />
       <ConnectedCO2PerTransactionGraph />

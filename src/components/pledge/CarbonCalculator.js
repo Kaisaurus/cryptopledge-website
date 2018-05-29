@@ -4,18 +4,14 @@ import PropTypes from 'prop-types'
 
 export default class CarbonCalculator extends Component {
   static propTypes = {
-    CarbonCalculatorByAddress: PropTypes.func.isRequired,
+    // CarbonCalculatorByAddress: PropTypes.func.isRequired,
     CarbonCalculatorManual: PropTypes.func.isRequired
   }
   state = {
     method: 'manual'
   }
   render() {
-    const {
-      pledgeData,
-      CarbonCalculatorByAddress,
-      CarbonCalculatorManual
-    } = this.props
+    const { CarbonCalculatorManual } = this.props
     const { method } = this.state
     return (
       <React.Fragment>
@@ -40,9 +36,9 @@ export default class CarbonCalculator extends Component {
           </TabList>
         </Tabs>
         <CardContent>
-          <span className={method === 'manual' ? 'is-hidden' : ''}>
+          {/* <span className={method === 'manual' ? 'is-hidden' : ''}>
             <CarbonCalculatorByAddress />
-          </span>
+          </span> */}
           <span className={method === 'address' ? 'is-hidden' : ''}>
             <CarbonCalculatorManual />
           </span>

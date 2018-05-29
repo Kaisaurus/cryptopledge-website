@@ -4,12 +4,14 @@ import {
   cryptocurrenciesManual
 } from '../util/static'
 export const defaultAddressItem = {
-  cryptocurrency: Object.keys(cryptocurrenciesByAddress)[0],
+  cryptocurrency: cryptocurrenciesByAddress[0],
   address: ''
 }
 export const defaultManualItem = {
-  cryptocurrency: Object.keys(cryptocurrenciesManual)[0],
+  cryptocurrencyLabel: cryptocurrenciesManual[0].label,
+  cryptocurrencyData: cryptocurrenciesManual[0].data,
   numberOfTransactions: 0,
+  CO2eOutput: 0,
   transactionDate: moment()
 }
 export const defaultState = {
@@ -17,5 +19,6 @@ export const defaultState = {
   manualItems: [Object.assign({}, defaultManualItem)],
   CO2Data: {},
   pledgeOrganizations: [],
-  CO2DataStatus: 'init'
+  CO2DataStatus: 'init',
+  CO2DataRange: {}
 }

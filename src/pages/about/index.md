@@ -61,7 +61,7 @@ XRP: rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh <tag: 2000447932 >
 
 
 
-Addresses are listed in Alphabetical order. 100% of received proceeds will go to development of Crypto Pledge, raising consciousness surrounding sustainability and inclusivity. All expenditures will be made public
+Addresses are listed in Alphabetical order. 100% of received proceeds will go to development of the Carbon Crypto Pledge or our partners mentioned below, raising consciousness surrounding sustainability and inclusivity. All expenditures will be made public
 
 
 

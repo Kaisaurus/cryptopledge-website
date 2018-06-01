@@ -45,7 +45,7 @@ Kai Gotoh, Horticultural Promotor GreenSquare International B.V. Consultant, Jap
 
 
 
-Donation addresses:
+**Donation addresses**:
 
 BTC: 34hVDq34TUjtwL9kzxhffcaWLRUXwB8XY7
 
@@ -58,3 +58,21 @@ LTC: LfL1ZptGCCxKgJ2JBDYQW7o1YbU4ezWK5W
 XMR: 4GdoN7NCTi8a5gZug7PrwZNKjvHFmKeV11L6pNJPgj5QNEHsN6eeX3DaAQFwZ1ufD4LYCZKArktt113W7QjWvQ7CW85LZov1AovJErFqgW
 
 XRP: rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh <tag: 2000447932 >
+
+
+
+Addresses are listed in Alphabetical order. 100% of received proceeds will go to development of Crypto Pledge, raising consciousness surrounding sustainability and inclusivity. All expenditures will be made public
+
+
+
+**Partners**
+
+Cool Earth
+
+Solar-aid
+
+Animal Charity Evaluators
+
+**Contact**
+
+You can email us at ...

@@ -25,9 +25,20 @@ Digiconomist estimates that the Bitcoin network alone consumes around 70 TW⋅h 
 
 Digiconomist estimates that the Bitcoin network alone produces 34 million tonnes of CO2e per year.
 
-
-
 # Team
-<img src="/img/sh.jpg" style="width: 200px;"/>
-![](/img/sh.png =200x200)
-hello
+
+![](/img/dest_1.jpg)
+
+Victor Sint Nicolaas Co-founder summitto economics and econometrics, University of Amsterdam
+
+![](/img/dest_2.jpg)
+
+Anna ritchie, Senior product manager Elsevier, Computer science, Universiteit van Cambridge
+
+![](/img/dest_3.jpg)
+
+Milan Ilchev, Junior Dutch Regulatory Analyst, TMF, LL.M., University of Maastricht
+
+![](/img/dest_4.jpg)
+
+Kai Gotoh, Horticultural Promotor GreenSquare International B.V. Consultant, Japan-Euro-Promotions, Web designer and developer

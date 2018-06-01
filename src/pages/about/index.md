@@ -27,18 +27,34 @@ Digiconomist estimates that the Bitcoin network alone produces 34 million tonnes
 
 # Team
 
-![](/img/dest_1.jpg)
+![null](/img/dest_1.jpg)
 
 Victor Sint Nicolaas Co-founder summitto economics and econometrics, University of Amsterdam
 
-![](/img/dest_2.jpg)
+![null](/img/dest_2.jpg)
 
 Anna ritchie, Senior product manager Elsevier, Computer science, Universiteit van Cambridge
 
-![](/img/dest_3.jpg)
+![null](/img/dest_3.jpg)
 
 Milan Ilchev, Junior Dutch Regulatory Analyst, TMF, LL.M., University of Maastricht
 
-![](/img/dest_4.jpg)
+![null](/img/dest_4.jpg)
 
 Kai Gotoh, Horticultural Promotor GreenSquare International B.V. Consultant, Japan-Euro-Promotions, Web designer and developer
+
+
+
+Donation addresses:
+
+BTC: 34hVDq34TUjtwL9kzxhffcaWLRUXwB8XY7
+
+BTH: 1Mz3oXZUm4GRDttdnEPz7Zq12QPeb5gGmP
+
+ETH: 0xf9a27Ce9C4b3fe8afAaEf7560296394C60ceadEC
+
+LTC: LfL1ZptGCCxKgJ2JBDYQW7o1YbU4ezWK5W
+
+XMR: 4GdoN7NCTi8a5gZug7PrwZNKjvHFmKeV11L6pNJPgj5QNEHsN6eeX3DaAQFwZ1ufD4LYCZKArktt113W7QjWvQ7CW85LZov1AovJErFqgW
+
+XRP: rLHzPsX6oXkzU2qL12kHCH8G8cnZv1rBJh <tag: 2000447932 >

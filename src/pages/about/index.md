@@ -28,6 +28,6 @@ Digiconomist estimates that the Bitcoin network alone produces 34 million tonnes
 
 
 # Team
-
-<img src="/img/sh.jpg" alt="drawing" style="width: 200px;"/>
+<img src="/img/sh.jpg" style="width: 200px;"/>
 ![](/img/sh.png =200x200)
+hello

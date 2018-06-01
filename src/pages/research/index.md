@@ -23,50 +23,32 @@ Think you can extend or update our estimates? [Let us know!](https://github.com/
 
 We can divide all other cryptocurrencies in three groups:
 
-
-
 1. ERC20 tokens
 
 Take up a percentage of the Ethereum network! Is your team behind the creation of such a token, let us know and discuss the opportunity to offset your carbon emissions.
 
-
-
 2. Energy friendly cryptocurrencies 
 
-Consensus protocols have been around for decades. Note that more energy-efficient alternatives to Proof of Work are all more centralized or likely to be unfair. \[x]
+Consensus protocols have been around for decades. Note that more energy-efficient alternatives to Proof of Work are all more centralized or likely to be unfair.
 
-Ripple
-
-Stellar
-
-NEO
-
-Cardano
-
-IOTA
-
-NEM
-
-Tron
-
-Tether
-
-
+* Ripple
+* Stellar
+* NEO
+* Cardano
+* IOTA
+* NEM
+* Tron
+* Tether
 
 3. Still to analyse
 
 The 10 largest cryptocurrencies cost many orders of magnitude more energy than other cryptocurrencies. With your help, we can include analyses for more currencies. On the top of our todo list are:
 
-Litecoin
-
-Monero
-
-Dash
-
-Ethereum Classic
-
-
+* Litecoin
+* Monero
+* Dash
+* Ethereum Classic
 
 ## Carbon offsetting estimates
 
-You can find an overview of how the creation and reduction of carbon emissions can be calculated here. Do you have reason to believe our estimates could be improved? Let us know! \[Link to our Github]
+You can find an overview of how the creation and reduction of carbon emissions can be calculated here. Do you have reason to believe our estimates could be improved? [Let us know!](https://github.com/Kaisaurus/cryptopledge-website)

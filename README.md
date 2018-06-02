@@ -1,11 +1,14 @@
-### Access Locally
+### Local build
 
 ```
-$ git clone https://github.com/[GITHUB_USERNAME]/[REPO_NAME].git
-$ cd [REPO_NAME]
+$ git clone https://github.com/Kaisaurus/cryptopledge-website.git
+$ cd cryptopledge-website
+$ yarn global add gatsby-cli
 $ yarn
 $ yarn run develop
 ```
+Connect to http://localhost:8000/
+
 
 To test the CMS locally, you'll need run a production build of the site:
 

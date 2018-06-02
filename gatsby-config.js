@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby + Netlify CMS Starter'
+    title: 'Carbon Crypto Pledge'
   },
   plugins: [
     // 'gatsby-plugin-styled-components',

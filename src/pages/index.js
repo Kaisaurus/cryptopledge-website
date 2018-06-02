@@ -25,7 +25,7 @@ export default class IndexPage extends React.Component {
       edge => edge.node.frontmatter.templateKey === 'home-page'
     )[0].node.frontmatter
     const { title, subtitle } = home
-    return <HomePageTemplate title={title} subtitle={subtitle} />
+    return <HomePageTemplate title={title} subtitle={subtitle} card1={home.card1} card2={home.card2} card3={home.card3} />
   }
 }
 
@@ -40,6 +40,9 @@ export const pageQuery = graphql`
             title
             templateKey
             subtitle
+            card1
+            card2
+            card3
           }
         }
       }

@@ -20,12 +20,18 @@ const PledgeHeader = styled.h1`
 const PledgeBtn = styled(Link)`
   margin: 0 15px;
 `
+const HomeSubtitle = styled(Subtitle)`
+  margin: 50px 0 0 0;
+`
 
 export const HomePageTemplate = ({
   title,
   subtitle,
   content,
-  contentComponent
+  contentComponent,
+  card1,
+  card2,
+  card3
 }) => {
   const PageContent = contentComponent || Content
 
@@ -35,22 +41,22 @@ export const HomePageTemplate = ({
         <MainNavbar />
         <HeroBody>
           <Container hasTextAlign="centered">
-            <Title isSize={2} className="has-text-white-bis">
+            <Title isSize={1} className="has-text-white-bis">
               {title}
             </Title>
-            <Subtitle isSize={5} className="has-text-white-ter">
+            <HomeSubtitle isSize={3} className="has-text-white-ter">
               {subtitle}
-            </Subtitle>
+            </HomeSubtitle>
           </Container>
         </HeroBody>
         <Hero className="is-primary" isSize="small">
           <HeroBody>
             <Container>
               <PledgeHeader className="title has-text-centered">
+                Join others and offset your crypto carbon footprint today{' '}
                 <PledgeBtn className="button is-link is-large" to="/pledge">
                   Pledge
                 </PledgeBtn>
-                Join others and offset your crypto carbon footprint today{' '}
               </PledgeHeader>
             </Container>
           </HeroBody>
@@ -65,16 +71,7 @@ export const HomePageTemplate = ({
               </div>
               <div className="card-content">
                 <div className="content">
-                  <h4>Tristique senectus et netus et. </h4>
-                  <p>
-                    Purus semper eget duis at tellus at urna condimentum mattis.
-                    Non blandit massa enim nec. Integer enim neque volutpat ac
-                    tincidunt vitae semper quis. Accumsan tortor posuere ac ut
-                    consequat semper viverra nam.
-                  </p>
-                  <p>
-                    <a href="#">Learn more</a>
-                  </p>
+                  {card1}
                 </div>
               </div>
             </div>
@@ -86,17 +83,7 @@ export const HomePageTemplate = ({
               </div>
               <div className="card-content">
                 <div className="content">
-                  <h4>Tempor orci dapibus ultrices in.</h4>
-                  <p>
-                    Ut venenatis tellus in metus vulputate. Amet consectetur
-                    adipiscing elit pellentesque. Sed arcu non odio euismod
-                    lacinia at quis risus. Faucibus turpis in eu mi bibendum
-                    neque egestas cmonsu songue. Phasellus vestibulum lorem sed
-                    risus.
-                  </p>
-                  <p>
-                    <a href="#">Learn more</a>
-                  </p>
+                  {card2}
                 </div>
               </div>
             </div>
@@ -108,16 +95,7 @@ export const HomePageTemplate = ({
               </div>
               <div className="card-content">
                 <div className="content">
-                  <h4> Leo integer malesuada nunc vel risus. </h4>
-                  <p>
-                    Imperdiet dui accumsan sit amet nulla facilisi morbi. Fusce
-                    ut placerat orci nulla pellentesque dignissim enim. Libero
-                    id faucibus nisl tincidunt eget nullam. Commodo viverra
-                    maecenas accumsan lacus vel facilisis.
-                  </p>
-                  <p>
-                    <a href="#">Learn more</a>
-                  </p>
+                  {card3}
                 </div>
               </div>
             </div>
@@ -128,6 +106,7 @@ export const HomePageTemplate = ({
   )
 }
 
+// TODO: Is this actually necessary? Given that index.js imports non default export above.
 export default ({ data }) => {
   const { markdownRemark: post } = data
 
@@ -138,6 +117,9 @@ export default ({ data }) => {
         title={post.frontmatter.title}
         subtitle={post.frontmatter.subtitle}
         content={post.html}
+        card1={post.frontmatter.card1}
+        card2={post.frontmatter.card2}
+        card3={post.frontmatter.card3}
       />
     </React.Fragment>
   )
@@ -150,6 +132,9 @@ export const HomePageQuery = graphql`
       frontmatter {
         title
         subtitle
+        card1
+        card2
+        card3
       }
     }
   }

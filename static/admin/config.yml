@@ -28,7 +28,9 @@ collections:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "home-page"}
           - {label: "Title", name: "title", widget: "string"}
           - {label: "Subtitle", name: "subtitle", widget: "string"}
-          - {label: "Body", name: "body", widget: "markdown"}
+          - {label: "Card 1", name: "card1", widget: "markdown"}
+          - {label: "Card 2", name: "card2", widget: "markdown"}
+          - {label: "Card 3", name: "card3", widget: "markdown"}
       - file: "src/pages/about/index.md"
         label: "About"
         name: "about"
